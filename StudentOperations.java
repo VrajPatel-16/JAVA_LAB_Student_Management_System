@@ -72,3 +72,16 @@ import java.util.ArrayList;
              System.out.println("Error: " + e.getMessage());
          }
      }
+	 // Method to search for a student based on their position in the list (1-based index).
+     public void searchByPosition(int position) {
+         try {
+             if (position > 0 && position <= students.size()) {
+                 students.get(position - 1).display();
+             } else {
+                 throw new IndexOutOfBoundsException("Invalid position.");
+             }
+         } catch (IndexOutOfBoundsException e) {
+             System.out.println("Error: " + e.getMessage());
+         }
+     }
+     
