@@ -44,3 +44,31 @@ import java.util.ArrayList;
              student.display();
          }
      }
+     // Method to search for a student by PRN (unique ID) and display their details if found.
+     public void searchByPRN(long prn) {
+         try {
+             for (Student student : students) {
+                 if (student.getPRN() == prn) {
+                     student.display();
+                     return;
+                 }
+             }
+             throw new StudentNotFoundException("Student with PRN " + prn + " not found.");
+         } catch (StudentNotFoundException e) {
+             System.out.println("Error: " + e.getMessage());
+         }
+     }
+     // Method to search for a student by name (case insensitive) and displays their details if found.
+     public void searchByName(String name) {
+         try {
+             for (Student student : students) {
+                 if (student.getName().equalsIgnoreCase(name)) {
+                     student.display();
+                     return;
+                 }
+             }
+             throw new StudentNotFoundException("Student with name '" + name + "' not found.");
+         } catch (StudentNotFoundException e) {
+             System.out.println("Error: " + e.getMessage());
+         }
+     }
