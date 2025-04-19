@@ -1,5 +1,10 @@
 import java.util.Scanner;
  
+ class InvalidChoiceException extends Exception {
+     public InvalidChoiceException(String message) {
+         super(message);
+     }
+ }
  
  public class Main {
      public static void main(String[] args) {
