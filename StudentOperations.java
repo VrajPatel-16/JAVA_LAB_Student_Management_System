@@ -9,5 +9,15 @@ import java.util.ArrayList;
          this.students = new ArrayList<>();
      }
  
- 
- }
+     // Custom Exception for duplicate student PRNs
+     public static class DuplicateStudentException extends Exception {
+         public DuplicateStudentException(String message) {
+             super(message);
+         }
+     }
+     // Custom Exception for when a student is not found
+     public static class StudentNotFoundException extends Exception {
+         public StudentNotFoundException(String message) {
+             super(message);
+         }
+     }
