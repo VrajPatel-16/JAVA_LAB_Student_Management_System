@@ -21,3 +21,26 @@ import java.util.ArrayList;
              super(message);
          }
      }
+     // Adds a new student to the list.
+     public void addStudent(Student student) {
+         try {
+             for (Student s : students) {
+                 if (s.getPRN() == student.getPRN()) {
+                     throw new DuplicateStudentException("Student with PRN " + student.getPRN() + " already exists.");
+                 }
+             }
+             students.add(student);
+             System.out.println("Student added successfully.");
+         } catch (DuplicateStudentException e) {
+             System.out.println("Error: " + e.getMessage());
+         }
+     }
+     // Displays details of all students in the list.
+     public void displayStudents() {
+         if (students.isEmpty()) {
+             System.out.println("No students to display.");
+         }
+         for (Student student : students) {
+             student.display();
+         }
+     }
